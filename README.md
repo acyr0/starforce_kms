@@ -21,7 +21,7 @@ reasonably confident that the results here are correct.
 Feel free to open issues in this project if you believe there are any mistakes,
 although I can't promise I'll answer them super quickly.
 
-Cary#0001, `aCyr` in GMS Reboot
+@cary on Discord, `aCyr` in GMS Reboot
 
 # Changelog
 
