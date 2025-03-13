@@ -3,6 +3,7 @@
   import UrlPattern from "url-pattern";
 
   import type { Config } from "./types";
+  import { MAX_STARS } from "./types";
   import { DEFAULT_CONFIG, make_config } from "./types";
 
   export let config: Config;
@@ -27,7 +28,7 @@
       let packed: string = opts["starcatch"];
 
       let starcatch = [];
-      for (let i = 12; i < 25; i++) {
+      for (let i = 12; i < MAX_STARS; i++) {
         if (packed.charAt(i - 12) === "1") {
           starcatch.push(i);
         }
@@ -53,7 +54,7 @@
     // Add starcatch as a bitmap.
     if (starcatch.length > 0) {
       let bitmap = [];
-      for (let i = 12; i < 25; i++) {
+      for (let i = 12; i < MAX_STARS; i++) {
         bitmap.push(starcatch.includes(i) ? 1 : 0);
       }
       rest["starcatch"] = bitmap.join("");

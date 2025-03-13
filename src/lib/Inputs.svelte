@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Config } from "./types";
+  import { MAX_STARS } from "./types";
 
   export let config: Config;
 
@@ -42,7 +43,7 @@
   const starcatch_drag_commit = () => {
     if (drag_start != null && drag_end != null && drag_start !== drag_end) {
       let new_starcatch = [];
-      for (let i = 10; i < 25; i++) {
+      for (let i = 10; i < MAX_STARS; i++) {
         if (between(drag_start, drag_end, i)) {
           if (starcatch_enabling(drag_start)) {
             new_starcatch.push(i);
@@ -121,14 +122,9 @@
       <span>30% off</span>
     </label>
 
-    <label class="button" class:checked={config.event_five_ten}>
-      <input type="checkbox" bind:checked={config.event_five_ten} />
-      <span>5/10/15</span>
-    </label>
-
-    <label class="button" class:checked={config.event_one_plus_one}>
-      <input type="checkbox" bind:checked={config.event_one_plus_one} />
-      <span>1+1 up to 10</span>
+    <label class="button" class:checked={config.event_destruction}>
+      <input type="checkbox" bind:checked={config.event_destruction} />
+      <span>-30% boom ≤21</span>
     </label>
   </div>
 </fieldset>
@@ -166,18 +162,18 @@
   </legend>
 
   <div class="inputs">
-    {#each [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24] as star}
+    {#each { length: MAX_STARS - 12 } as _, star}
       <label
         class="button draggable"
-        class:checked={config.starcatch.includes(star)}
+        class:checked={config.starcatch.includes(star + 12)}
         class:disabling={!starcatch_enabling(drag_start)}
-        class:active={between(drag_start, drag_end, star)}
-        on:pointerdown={starcatch_drag_start(star)}
-        on:pointerenter={starcatch_drag_continue(star)}
+        class:active={between(drag_start, drag_end, star + 12)}
+        on:pointerdown={starcatch_drag_start(star + 12)}
+        on:pointerenter={starcatch_drag_continue(star + 12)}
       >
-        <input type="checkbox" bind:group={config.starcatch} value={star} />
+        <input type="checkbox" bind:group={config.starcatch} value={star + 12} />
         <span>
-          {star}
+          {star + 12}
         </span>
       </label>
     {/each}

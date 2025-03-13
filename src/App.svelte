@@ -10,7 +10,7 @@
 
 <Router bind:config />
 <main>
-  <h1><span class="starforce">★ Starforce</span> Calc</h1>
+  <h1><span class="starforce">★ Starforce</span> Calc <sup class="kmst">(kmst)</sup></h1>
 
   <Inputs bind:config />
   <Result bind:config />
@@ -26,5 +26,9 @@
   .starforce {
     @apply text-amber-400;
     @apply font-medium;
+  }
+
+  .kmst {
+    @apply text-red-400;
   }
 </style>

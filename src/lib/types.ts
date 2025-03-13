@@ -1,3 +1,5 @@
+export const MAX_STARS: number = 30;
+
 export type Config = {
   item_level: number;
   item_from_star: number;
@@ -5,8 +7,7 @@ export type Config = {
   replacement_cost: number;
   safeguard: boolean;
   event_thirty_off: boolean;
-  event_five_ten: boolean;
-  event_one_plus_one: boolean;
+  event_destruction: boolean;
   mvp_discount: number;
   starcatch: number[];
 };
@@ -18,8 +19,7 @@ export const DEFAULT_CONFIG: Config = {
   replacement_cost: 0,
   safeguard: false,
   event_thirty_off: false,
-  event_five_ten: false,
-  event_one_plus_one: false,
+  event_destruction: false,
   mvp_discount: 0,
   starcatch: [],
 };
